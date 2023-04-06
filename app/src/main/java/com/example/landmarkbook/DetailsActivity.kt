@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.landmarkbook.databinding.ActivityDetailsBinding
 
 class DetailsActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -13,10 +14,13 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(view)
 
         val intent = intent
-       // val selectedLandMark = intent.getSerializableExtra("landmark") as LandMark
+        val landmark = intent.getSerializableExtra("landmark") as LandMark
+        binding.txtName.text = landmark.name
+        binding.txtCountry.text = landmark.country
+        binding.imageView.setImageResource(landmark.image)
 
 
-
+/*
         val selectedLandMark = MySingleton.chosenLandMark
 
         selectedLandMark?.let {
@@ -24,7 +28,7 @@ class DetailsActivity : AppCompatActivity() {
             binding.txtName.text = it.name
             binding.txtCountry.text = it.country
             binding.imageView.setImageResource(it.image) }
-
+*/
 
     }
 }
